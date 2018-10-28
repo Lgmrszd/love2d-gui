@@ -1,4 +1,4 @@
-gui = require("gui")
+gui = require("love2d-gui")
 
 local Widget = {}
 Widget.__index = Widget

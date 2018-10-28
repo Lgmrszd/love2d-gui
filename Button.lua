@@ -1,5 +1,5 @@
-gui = require("gui")
-gui.Widget = require("gui.Widget")
+gui = require("love2d-gui")
+gui.Widget = require("love2d-gui.Widget")
 
 local border = 5
 
