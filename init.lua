@@ -19,7 +19,7 @@ function gui.mousemoved(x, y, dx, dy)
   end
 end
 
-function gui.mousepressed(x, y, dx, dy)
+function gui.mousepressed(x, y, button, isTouch)
   for _, widget in pairs(widgets) do
     if widget:contains(x, y) then
       widget.is_pressed = true
@@ -29,7 +29,7 @@ function gui.mousepressed(x, y, dx, dy)
   end
 end
 
-function gui.mousereleased(x, y, dx, dy)
+function gui.mousereleased(x, y, button, isTouch)
   for _, widget in pairs(widgets) do
     if widget.is_pressed then
       if widget:contains(x, y) then
