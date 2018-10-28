@@ -20,6 +20,16 @@ function Widget:_init()
   table.insert(gui.widgets, self)
 end
 
+function Widget:set_font(font)
+  self.font = font
+  self:resize(self.w, self.h)
+end
+
+function Widget:resize(x, y)
+  self.w = x
+  self.h = y
+end
+
 function Widget:contains(x, y)
   return x > self.x and y > self.y and
   x < (self.x + self.w) and y < (self.y + self.h)
