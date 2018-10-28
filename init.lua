@@ -1,16 +1,7 @@
 local gui = {}
 local widgets = {}
 
--- local Layer = {}
--- Layer.__index = Layer
--- setmetatable(Layer, {
---   __call = function()
---       obj = setmetatable({}, Layer)
---       obj:_init()
---       return obj
---   end
--- })
---
+gui.current_font = love.graphics.getFont()
 
 function gui.draw()
   for _, widget in pairs(widgets) do
@@ -49,7 +40,5 @@ function gui.mousereleased(x, y, dx, dy)
   end
 end
 
---gui.Button = Button
-gui.Widget = Widget
 gui.widgets = widgets
 return gui

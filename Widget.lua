@@ -16,6 +16,7 @@ function Widget:_init()
   self.h = 0
   self.is_hovered = false
   self.is_pressed = false
+  self.font = gui.current_font
   table.insert(gui.widgets, self)
 end
 

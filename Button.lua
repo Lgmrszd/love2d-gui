@@ -22,13 +22,13 @@ setmetatable(Button, {
 function Button:_init()
   gui.Widget._init(self)
   self.text = "Button"
-  self.w = assets.fonts.buttons_font:getWidth(self.text) + border*2
-  self.h = assets.fonts.buttons_font:getHeight() + border*2
+  self.w = self.font:getWidth(self.text) + border*2
+  self.h = self.font:getHeight() + border*2
 end
 
 function Button:get_minimum_size()
-  local min_w = assets.fonts.buttons_font:getWidth(self.text) + border*2
-  local min_h = assets.fonts.buttons_font:getHeight() + border*2
+  local min_w = self.font:getWidth(self.text) + border*2
+  local min_h = self.font:getHeight() + border*2
   return min_w, min_h
 end
 
@@ -63,7 +63,7 @@ function Button:draw()
   else
     love.graphics.setColor(color)
   end
-  love.graphics.setFont(assets.fonts.buttons_font)
+  love.graphics.setFont(self.font)
   love.graphics.rectangle("fill", self.x, self.y, self.w, self.h)
   love.graphics.setColor(text_color)
   love.graphics.printf(self.text, self.x+border, self.y+border, self.w-border*2, "center")
