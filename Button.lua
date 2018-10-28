@@ -1,4 +1,5 @@
 gui = require("gui")
+gui.Widget = require("gui.Widget")
 
 local border = 5
 
