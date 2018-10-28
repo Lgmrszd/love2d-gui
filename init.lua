@@ -1,5 +1,3 @@
-assets = require("assets")
-
 local gui = {}
 local widgets = {}
 
@@ -12,7 +10,7 @@ local widgets = {}
 --       return obj
 --   end
 -- })
--- 
+--
 
 function gui.draw()
   for _, widget in pairs(widgets) do
