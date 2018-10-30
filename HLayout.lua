@@ -16,8 +16,7 @@ function HLayout:_init()
 end
 
 function HLayout:add_widget(widget)
-  table.insert(self.widgets, widget)
-  widget.parent = self
+  Layout.add_widget(self, widget)
   self:resize_widgets()
 end
 

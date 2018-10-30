@@ -43,7 +43,20 @@ end
 
 function Layout:add_widget(widget)
   table.insert(self.widgets, widget)
+  if widget.parent then
+    widget.parent:disown(widget)
+  end
   widget.parent = self
+end
+
+function Layout:disown(widget)
+  if widget.parent == self then
+    for i = 1, #self.widgets do
+      if self.widgets[i] == widget then
+        table.remove(self.widgets, i)
+      end
+    end
+  end
 end
 
 function Layout:resize(x, y)
