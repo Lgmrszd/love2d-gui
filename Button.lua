@@ -1,5 +1,4 @@
-gui = require("love2d-gui")
-gui.Widget = require("love2d-gui.Widget")
+Widget = require("love2d-gui.Widget")
 
 local border = 5
 
@@ -11,7 +10,7 @@ local text_color = {220/255, 220/255, 220/255, 1}
 Button.__index = Button
 
 setmetatable(Button, {
-  __index = gui.Widget,
+  __index = Widget,
   __call = function()
       obj = setmetatable({}, Button)
       obj:_init()
@@ -20,7 +19,7 @@ setmetatable(Button, {
 })
 
 function Button:_init()
-  gui.Widget._init(self)
+  Widget._init(self)
   self.text = "Button"
   self.w = self.font:getWidth(self.text) + border*2
   self.h = self.font:getHeight() + border*2
@@ -54,7 +53,7 @@ function Button:has_clicked(x, y)
 end
 
 function Button:draw()
-  local r, g, b, a = love.graphics.getColor()
+  local previous_color = {love.graphics.getColor()}
   local previous_font = love.graphics.getFont()
   if self.is_pressed then
     love.graphics.setColor(pressed_color)
@@ -67,7 +66,7 @@ function Button:draw()
   love.graphics.rectangle("fill", self.x, self.y, self.w, self.h)
   love.graphics.setColor(text_color)
   love.graphics.printf(self.text, self.x+border, self.y+border, self.w-border*2, "center")
-  love.graphics.setColor(r, g, b, a)
+  love.graphics.setColor(previous_color)
   love.graphics.setFont(previous_font)
 end
 
